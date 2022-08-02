@@ -2,17 +2,14 @@ import React from "react";
 import Task from "./Task";
 import {nanoid} from "nanoid"
 
-function TaskList({TASKS, display}) {
+function TaskList({tasks}) {
+  console.log(tasks)
 
-  const toDisplay = TASKS.filter(task => task.category === display);
+  
   
   return (
     <div className="tasks">
-      
-      {display === 'All' ? 
-        TASKS.map(task => <Task key={nanoid(5)} text = {task.text} category={task.category}/>)  
-        : 
-        toDisplay.map(task => <Task key={nanoid(5)} text = {task.text} category={task.category}/>)}
+      {tasks.map(task => <Task key={nanoid(5)} text = {task.text} category={task.category}/>)  }
     </div>
   );
 }
